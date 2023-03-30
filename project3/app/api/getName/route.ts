@@ -1,10 +1,11 @@
 import { PrismaClient } from '@prisma/client'
-import { json } from 'node:stream/consumers'
 const prisma = new PrismaClient()
 import {NextResponse} from "next/server"
+
+//TODO: need to add fucnitonality for parsing through the multiple ints that can be passed
 export async function GET(request: Request, { params } : {params:any}) {
     //fetch menu items with prisma
-    const pars = params.id
-    const data = await prisma.menu_items_table.findMany({where: {foodid :parseInt(params.id)}})
+    console.log(params.slug)
+    const data = await prisma.menu_items_table.findMany({where: {foodid :parseInt(params.slug)}})
     return NextResponse.json(data)
 }

@@ -1,7 +1,7 @@
 import { PrismaClient } from '@prisma/client'
-import { json } from 'node:stream/consumers'
 const prisma = new PrismaClient()
 import {NextResponse} from "next/server"
+
 export async function GET(request: Request) {
   try{
     //fetch menu items with prisma
