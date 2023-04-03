@@ -9,14 +9,14 @@ datasource db {
 
 model ingredients_table {
   name                String?
-  itemid              Int       @id @default(autoincrement())
+  itemid              Int       @id
   num_in_stock        Int?
   last_date_restocked DateTime? @db.Date
   min_stock_allowed   Int?
 }
 
 model menu_items_table {
-  foodid       Int     @id @default(autoincrement())
+  foodid       Int     @id
   name         String?
   price        Float?
   category     String?
@@ -25,20 +25,24 @@ model menu_items_table {
   min_in_stock Int?
 }
 
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
 model pos_transactions {
-  date        DateTime @db.Date @id 
+  date        DateTime? @db.Date
   eod_revenue Float?
 
+  @@ignore
 }
 
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
 model relationss {
   foodid Int @id
   itemid Int?
 
 }
 
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
 model reports {
-  foodid      Int @id 
+  foodid      Int @id
   name        String    @db.VarChar(255)
   number_sold Int
   inventory   Int
@@ -47,7 +51,7 @@ model reports {
 }
 
 model sales {
-  itemid           Int     @id 
+  itemid           Int     @id
   units_sold       Int?
   cost_per_unit    Float?
   revenue_per_unit Float?
@@ -59,4 +63,10 @@ model teammembers {
   student_name   String  @id
   section        Int?
   favorite_movie String?
+}
+
+model menuimages {
+  foodid   Int     @id
+  imagesrc String?
+  name     String?
 }

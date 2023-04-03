@@ -1,28 +1,33 @@
-import { Inter } from 'next/font/google'
 import Link from "next/link"
-import { PrismaClient } from '@prisma/client'
-const prisma = new PrismaClient()
+import { use } from "react"
+import './globals.css'
 async function getItems(){
-  const res = await fetch(`${process.env.BASE_URL}/api/getItems`)
+  const res = await fetch(`${process.env.BASE_URL}/api/getItems`, {cache: "no-store"})
   if(!res.ok){
     console.log("result + ", res)
   }
-  return res.json()
+  return await(res).json()
 }
 
-export default async function Home() {
-  const data: {name: string}[] = await getItems()
-  console.log(data)
+export default function Home() {
+  const data = use(getItems())
+  //console.log(data)
   return (
     <main>
-      <nav className = "py-78 px-78">
+      <nav className = "py-78 px-78 no-underline">
         <Link href = {"/customer"}>Go To Customer </Link>
         <Link href = {"/employee"}>Go To Employee </Link>
         <Link href = {"/manager"}>Go To Manager </Link>
       </nav>
-      {data.map((menuItem)=>(
-        <h1>{menuItem.name}</h1>
-      ))}
+      <div>
+        {data.map((menuItem:any)=>{
+        return(
+          <ul className="text-3xl font-bold underline" key={menuItem.foodid}>
+            <li>{menuItem.name}</li>
+          </ul>
+        )
+      })}
+      </div>
     </main>
   )
 }
