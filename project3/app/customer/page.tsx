@@ -8,8 +8,7 @@ async function getImages(){
       console.log("result + ", res)
     }
     return await(res).json()
-  }
-  
+}
 
 // type Image = {
 //     foodid: number
@@ -35,10 +34,10 @@ export default function Customer(){
                   height = "500"
                   object-fit="cover"
                   //placeholder="blur"
-                  className="w-full h-full top-0 left-0 object-cover rounded-2xl card-zoom-image"
+                  className="w-full h-full top-0 left-0 object-cover rounded-2xl card-zoom-image shadow-xlg"
                   />
               </div>
-              <h3 className="mt-4 capitalize hover:uppercase text-gray-700 text-center font-bold">{image.name}</h3>
+              <h3 className="mt-4 capitalize hover:uppercase text-gray-700 text-center font-bold hover:text-blue-500">{image.name}</h3>
               </a>
           )})}
       </div>
