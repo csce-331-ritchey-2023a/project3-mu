@@ -1,0 +1,8 @@
+{
+  "/api/getItems/route": "app/api/getItems/route.js",
+  "/page": "app/page.js",
+  "/manager/page": "app/manager/page.js",
+  "/employee/page": "app/employee/page.js",
+  "/api/getImages/route": "app/api/getImages/route.js",
+  "/customer/page": "app/customer/page.js"
+}
