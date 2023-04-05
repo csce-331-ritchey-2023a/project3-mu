@@ -11,6 +11,7 @@ export default function Manager() {
         <h1>This is the Manager UI</h1>
         <nav>
         <Link href = {"/employee"}>Go To Employee      </Link>
+        <Link href = {"/customer"}>Go To Customer </Link>
         </nav>
       </main>
     )
