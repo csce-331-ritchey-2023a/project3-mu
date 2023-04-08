@@ -1,0 +1,13 @@
+self.__RSC_CSS_MANIFEST={
+  "__entry_css_mods__": {
+    "/Users/carterpatton/Desktop/331/project3-mu/app/page": [
+      "/Users/carterpatton/Desktop/331/project3-mu/app/globals.css"
+    ]
+  },
+  "/Users/carterpatton/Desktop/331/project3-mu/app/page.tsx": [
+    "/Users/carterpatton/Desktop/331/project3-mu/app/globals.css"
+  ],
+  "/Users/carterpatton/Desktop/331/project3-mu/app/layout.tsx": [
+    "/Users/carterpatton/Desktop/331/project3-mu/app/globals.css"
+  ]
+}

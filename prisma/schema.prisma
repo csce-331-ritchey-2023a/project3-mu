@@ -1,0 +1,72 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model ingredients_table {
+  name                String?
+  itemid              Int       @id
+  num_in_stock        Int?
+  last_date_restocked DateTime? @db.Date
+  min_stock_allowed   Int?
+}
+
+model menu_items_table {
+  foodid       Int     @id
+  name         String?
+  price        Float?
+  category     String?
+  num_sold     Int?
+  num_in_stock Int?
+  min_in_stock Int?
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model pos_transactions {
+  date        DateTime? @db.Date
+  eod_revenue Float?
+
+  @@ignore
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model relationss {
+  foodid Int @id
+  itemid Int?
+
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model reports {
+  foodid      Int @id
+  name        String    @db.VarChar(255)
+  number_sold Int
+  inventory   Int
+  date        DateTime? @db.Date
+
+}
+
+model sales {
+  itemid           Int     @id
+  units_sold       Int?
+  cost_per_unit    Float?
+  revenue_per_unit Float?
+  weight_per_unit  Float?
+  name             String?
+}
+
+model teammembers {
+  student_name   String  @id
+  section        Int?
+  favorite_movie String?
+}
+
+model menuimages {
+  foodid   Int     @id
+  imagesrc String?
+  name     String?
+}
