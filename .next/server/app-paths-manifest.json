@@ -1,3 +1,9 @@
 {
-  "/page": "app/page.js"
+  "/api/getItems/route": "app/api/getItems/route.js",
+  "/api/getImages/route": "app/api/getImages/route.js",
+  "/api/getName/route": "app/api/getName/route.js",
+  "/employee/page": "app/employee/page.js",
+  "/customer/page": "app/customer/page.js",
+  "/page": "app/page.js",
+  "/manager/page": "app/manager/page.js"
 }
