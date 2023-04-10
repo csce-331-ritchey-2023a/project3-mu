@@ -4,7 +4,7 @@ import './globals.css'
 async function getItems(){
   const res = await fetch(`${process.env.BASE_URL}/api/getItems`, {cache: "no-store"})
   if(!res.ok){
-    console.log("result + ", res)
+    console.log(process.env.BASE_URL)
   }
   return await(res).json()
 }
@@ -14,7 +14,7 @@ export default function Home() {
   //console.log(data)
   return (
     <main>
-      <nav className = "py-78 px-78 no-underline">
+      <nav className = "nav">
         <Link href = {"/customer"}>Go To Customer </Link>
         <Link href = {"/employee"}>Go To Employee </Link>
         <Link href = {"/manager"}>Go To Manager </Link>

@@ -1,9 +1,0 @@
-{
-  "/api/getItems/route": "/api/getItems",
-  "/api/getImages/route": "/api/getImages",
-  "/api/getName/route": "/api/getName",
-  "/employee/page": "/employee",
-  "/customer/page": "/customer",
-  "/page": "/",
-  "/manager/page": "/manager"
-}

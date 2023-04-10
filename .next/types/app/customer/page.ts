@@ -1,4 +1,4 @@
-// File: /Users/carterpatton/Desktop/331/project3-mu/app/customer/page.tsx
+// File: /Users/carterpatton/Desktop/331/project3-mu/project3-mu/app/customer/page.tsx
 import * as entry from '../../../../app/customer/page'
 import type { ResolvingMetadata } from 'next/dist/lib/metadata/types/metadata-interface'
 
