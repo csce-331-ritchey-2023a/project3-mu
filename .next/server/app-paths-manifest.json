@@ -1,0 +1,8 @@
+{
+  "/customer/Salad/page": "app/customer/Salad/page.js",
+  "/customer/page": "app/customer/page.js",
+  "/api/getImages/route": "app/api/getImages/route.js",
+  "/customer/Salad/[slug]/page": "app/customer/Salad/[slug]/page.js",
+  "/customer/Soup/page": "app/customer/Soup/page.js",
+  "/customer/Sand/page": "app/customer/Sand/page.js"
+}
