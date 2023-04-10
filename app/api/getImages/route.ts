@@ -9,7 +9,8 @@ export async function GET(request: Request) {
       select: {
         "foodid":true, 
         "imagesrc":true, 
-        "name":true
+        "name":true,
+        "category":true
       }
     })
     //console.log('getImages data:', data);
