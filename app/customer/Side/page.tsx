@@ -2,8 +2,8 @@ import Image from 'next/image'
 import { use } from "react"
 import 'app/globals.css'
 
-async function getImages(){
-    const res = await fetch(`${process.env.BASE_URL}/api/getImages`, {cache: "no-store"})
+async function getImagesSide(){
+    const res = await fetch(`${process.env.BASE_URL}/api/getImagesSide`, {cache: "no-store"})
     if(!res.ok){
       console.log("result + ", res)
     }
@@ -17,14 +17,14 @@ async function getImages(){
 // }
 
 export default function Customer(){
-    const images = use(getImages())
+    const images = use(getImagesSide())
     //console.log(images)
     return(
         <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8 " >
         <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
           {images.map((image:any) => {
             return(
-              <a href={`/customer/${image.category}/${image.id}`} className="group" key={image.foodid}>
+              <a href={`/customer/${image.category}/${image.foodid}`} className="group" key={image.foodid}>
               <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8 card-zoom">
                   <Image
                   alt=""
