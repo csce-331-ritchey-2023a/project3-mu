@@ -13,3 +13,20 @@
   .card-zoom:hover .card-zoom-image {
     @apply scale-125;
   }
+
+  .bannerTitle {
+    color: #fff;
+    font-weight: bold;
+    font-size: 46px;
+  }
+
+  .bannerLogo {
+    margin-right: 10px;
+  }
+
+  .logoImage {
+  display: inline-block;
+  vertical-align: middle;
+  width: 100px;
+  height: 100px;
+}
