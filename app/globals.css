@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 .card-zoom {
     @apply relative flex items-center justify-center m-3 overflow-hidden shadow-xl w-60 h-60 rounded-2xl;
   }
@@ -13,3 +14,28 @@
   .card-zoom:hover .card-zoom-image {
     @apply scale-125;
   }
+
+  .bannerTitle {
+    color: #fff;
+    font-weight: bold;
+    font-size: 46px;
+  }
+
+  .banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    background-color: #00288A;
+    }
+
+  .bannerLogo {
+    margin-right: 10px;
+  }
+
+  .logoImage {
+  display: inline-block;
+  vertical-align: middle;
+  width: 100px;
+  height: 100px;
+}

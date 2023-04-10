@@ -4,6 +4,7 @@ const nextConfig = {
     appDir: true,
   },
   images: {
+    domains: ['api.dineoncampus.com'],
     remotePatterns: [
       {
         protocol: 'https',
