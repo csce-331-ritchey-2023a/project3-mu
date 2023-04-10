@@ -24,7 +24,7 @@ export default function Customer(){
         <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
           {images.map((image:any) => {
             return(
-              <a href={`/path/to/${image.id}`} className="group" key={image.foodid}>
+              <a href={`/${image.category}/${image.id}`} className="group" key={image.foodid}>
               <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8 card-zoom">
                   <Image
                   alt=""
