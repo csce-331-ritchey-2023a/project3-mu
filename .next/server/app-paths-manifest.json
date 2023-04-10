@@ -1,6 +1,8 @@
 {
-  "/customer/Side/page": "app/customer/Side/page.js",
-  "/customer/Soup/page": "app/customer/Soup/page.js",
+  "/customer/Salad/[slug]/page": "app/customer/Salad/[slug]/page.js",
   "/api/getImages/route": "app/api/getImages/route.js",
-  "/customer/Salad/page": "app/customer/Salad/page.js"
+  "/customer/Sand/page": "app/customer/Sand/page.js",
+  "/customer/Soup/page": "app/customer/Soup/page.js",
+  "/customer/Salad/page": "app/customer/Salad/page.js",
+  "/customer/Side/page": "app/customer/Side/page.js"
 }

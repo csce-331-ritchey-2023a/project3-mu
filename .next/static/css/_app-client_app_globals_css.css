@@ -522,9 +522,6 @@ video {
 .flex-col {
   flex-direction: column;
 }
-.items-center {
-  align-items: center;
-}
 .justify-between {
   justify-content: space-between;
 }
@@ -592,6 +589,10 @@ video {
 .capitalize {
   text-transform: capitalize;
 }
+.text-blue-500 {
+  --tw-text-opacity: 1;
+  color: rgb(59 130 246 / var(--tw-text-opacity));
+}
 .text-gray-700 {
   --tw-text-opacity: 1;
   color: rgb(55 65 81 / var(--tw-text-opacity));
@@ -599,10 +600,6 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-.text-blue-500 {
-  --tw-text-opacity: 1;
-  color: rgb(59 130 246 / var(--tw-text-opacity));
 }
 .underline {
   text-decoration-line: underline;

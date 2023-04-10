@@ -130,32 +130,6 @@ self.__RSC_MANIFEST={
         "async": false
       }
     },
-    "(app-client)/./node_modules/next/dist/client/link.js": {
-      "*": {
-        "id": "(sc_client)/./node_modules/next/dist/client/link.js",
-        "chunks": [
-          "app/manager/page:app/manager/page"
-        ],
-        "name": "*",
-        "async": false
-      },
-      "": {
-        "id": "(sc_client)/./node_modules/next/dist/client/link.js",
-        "chunks": [
-          "app/manager/page:app/manager/page"
-        ],
-        "name": "",
-        "async": false
-      },
-      "default": {
-        "id": "(sc_client)/./node_modules/next/dist/client/link.js",
-        "chunks": [
-          "app/manager/page:app/manager/page"
-        ],
-        "name": "default",
-        "async": false
-      }
-    },
     "(app-client)/./node_modules/next/dist/client/image.js": {
       "*": {
         "id": "(sc_client)/./node_modules/next/dist/client/image.js",
@@ -191,22 +165,13 @@ self.__RSC_MANIFEST={
     "/Users/carterpatton/Desktop/331/project3-mu/project3-mu/app/customer/Sand/page": [
       "static/css/_app-client_app_globals_css.css"
     ],
+    "/Users/carterpatton/Desktop/331/project3-mu/project3-mu/app/customer/Salad/[slug]/page": [
+      "static/css/_app-client_app_globals_css.css"
+    ],
     "/Users/carterpatton/Desktop/331/project3-mu/project3-mu/app/customer/Soup/page": [
       "static/css/_app-client_app_globals_css.css"
     ],
     "/Users/carterpatton/Desktop/331/project3-mu/project3-mu/app/customer/Salad/page": [
-      "static/css/_app-client_app_globals_css.css"
-    ],
-    "/Users/carterpatton/Desktop/331/project3-mu/project3-mu/app/customer/page": [
-      "static/css/_app-client_app_globals_css.css"
-    ],
-    "/Users/carterpatton/Desktop/331/project3-mu/project3-mu/app/manager/page": [
-      "static/css/_app-client_node_modules_next_font_google_target_css_path_app_manager_page_tsx_import_Inter_a-88c67b.css"
-    ],
-    "/Users/carterpatton/Desktop/331/project3-mu/project3-mu/app/employee/page": [
-      "static/css/_app-client_node_modules_next_font_google_target_css_path_app_employee_page_tsx_import_Inter_-e3ed47.css"
-    ],
-    "/Users/carterpatton/Desktop/331/project3-mu/project3-mu/app/page": [
       "static/css/_app-client_app_globals_css.css"
     ],
     "/Users/carterpatton/Desktop/331/project3-mu/project3-mu/app/layout": [
@@ -429,54 +394,6 @@ self.__RSC_MANIFEST={
     "name": "default",
     "async": false
   },
-  "/Users/carterpatton/Desktop/331/project3-mu/project3-mu/node_modules/next/dist/client/link.js": {
-    "id": "(app-client)/./node_modules/next/dist/client/link.js",
-    "chunks": [
-      "app/manager/page:app/manager/page"
-    ],
-    "name": "*",
-    "async": false
-  },
-  "/Users/carterpatton/Desktop/331/project3-mu/project3-mu/node_modules/next/dist/esm/client/link.js": {
-    "id": "(app-client)/./node_modules/next/dist/client/link.js",
-    "chunks": [
-      "app/manager/page:app/manager/page"
-    ],
-    "name": "*",
-    "async": false
-  },
-  "/Users/carterpatton/Desktop/331/project3-mu/project3-mu/node_modules/next/dist/client/link.js#": {
-    "id": "(app-client)/./node_modules/next/dist/client/link.js",
-    "chunks": [
-      "app/manager/page:app/manager/page"
-    ],
-    "name": "",
-    "async": false
-  },
-  "/Users/carterpatton/Desktop/331/project3-mu/project3-mu/node_modules/next/dist/esm/client/link.js#": {
-    "id": "(app-client)/./node_modules/next/dist/client/link.js",
-    "chunks": [
-      "app/manager/page:app/manager/page"
-    ],
-    "name": "",
-    "async": false
-  },
-  "/Users/carterpatton/Desktop/331/project3-mu/project3-mu/node_modules/next/dist/client/link.js#default": {
-    "id": "(app-client)/./node_modules/next/dist/client/link.js",
-    "chunks": [
-      "app/manager/page:app/manager/page"
-    ],
-    "name": "default",
-    "async": false
-  },
-  "/Users/carterpatton/Desktop/331/project3-mu/project3-mu/node_modules/next/dist/esm/client/link.js#default": {
-    "id": "(app-client)/./node_modules/next/dist/client/link.js",
-    "chunks": [
-      "app/manager/page:app/manager/page"
-    ],
-    "name": "default",
-    "async": false
-  },
   "/Users/carterpatton/Desktop/331/project3-mu/project3-mu/node_modules/next/dist/client/image.js": {
     "id": "(app-client)/./node_modules/next/dist/client/image.js",
     "chunks": [
@@ -530,20 +447,6 @@ self.__RSC_MANIFEST={
     "name": "",
     "chunks": [
       "static/css/_app-client_app_globals_css.css"
-    ]
-  },
-  "/Users/carterpatton/Desktop/331/project3-mu/project3-mu/node_modules/next/font/google/target.css?{\"path\":\"app/manager/page.tsx\",\"import\":\"Inter\",\"arguments\":[{\"subsets\":[\"latin\"]}],\"variableName\":\"inter\"}#": {
-    "id": "null",
-    "name": "",
-    "chunks": [
-      "static/css/_app-client_node_modules_next_font_google_target_css_path_app_manager_page_tsx_import_Inter_a-88c67b.css"
-    ]
-  },
-  "/Users/carterpatton/Desktop/331/project3-mu/project3-mu/node_modules/next/font/google/target.css?{\"path\":\"app/employee/page.tsx\",\"import\":\"Inter\",\"arguments\":[{\"subsets\":[\"latin\"]}],\"variableName\":\"inter\"}#": {
-    "id": "null",
-    "name": "",
-    "chunks": [
-      "static/css/_app-client_node_modules_next_font_google_target_css_path_app_employee_page_tsx_import_Inter_-e3ed47.css"
     ]
   }
 }

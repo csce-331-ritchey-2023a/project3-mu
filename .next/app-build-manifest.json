@@ -10,30 +10,10 @@
       "static/chunks/main-app.js",
       "static/chunks/app/customer/loading.js"
     ],
-    "/customer/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/customer/page.js"
-    ],
     "/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/layout.js"
-    ],
-    "/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/page.js"
-    ],
-    "/employee/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/employee/page.js"
-    ],
-    "/manager/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/manager/page.js"
     ],
     "/customer/Salad/page": [
       "static/chunks/webpack.js",
@@ -44,6 +24,11 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/customer/Soup/page.js"
+    ],
+    "/customer/Salad/[slug]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/customer/Salad/[slug]/page.js"
     ],
     "/customer/Sand/page": [
       "static/chunks/webpack.js",
