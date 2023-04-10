@@ -11,27 +11,23 @@ export default function RootLayout({
 })
 {
     const pathname = usePathname();
-    const isSand = pathname === '/customer/Sand'; 
-    const isSoup = pathname === '/customer/Soup'; 
-    const isSide = pathname === '/customer/Side'; 
-    const isSalad = pathname === '/customer/Salad'; 
-
+    //console.log(pathname + "\n")
     return (
     
   <html lang="en">
     <body>
-    <div className='flex bg-yellow'>
-        <nav className="bg-gray-800 h-screen w-1/3 flex justify-between flex-col flex-grow ">
-            <Link href="/customer/Sand" className="text-blue-500 text-center flex-grow:1" style={{ backgroundColor: isSand ? '#fff' : '#000' }}>
+    <div className='flex bg-primary'>
+        <nav className="bg-secondary h-screen w-1/3 flex flex-col ">
+            <Link href="/customer/Sand" className={`flex items-center justify-center text-bold text-4xl text-center flex-grow  ${pathname ==  '/customer/Sand'? 'bg-primary text-black' : 'bg-secondary text-white'}`}>
                 Sandwiches
             </Link>
-            <Link className="text-blue-500 text-center flex-grow" href="/customer/Soup" style={{ backgroundColor: isSoup ? '#fff' : '#000' }}>
+            <Link href="/customer/Soup" className={`flex items-center justify-center text-bold text-4xl text-center flex-grow  ${pathname == '/customer/Soup' ? 'bg-primary text-black' : 'bg-secondary text-white'}`}>
                 Soups
             </Link>
-            <Link href="/customer/Salad" className="text-blue-500 text-center flex-grow:1"style={{ backgroundColor: isSalad ? '#fff' : '#000' }}>
+            <Link href="/customer/Salad" className={`flex items-center justify-center text-bold text-4xl text-center flex-grow  ${pathname == '/customer/Salad' ? 'bg-primary text-black' : 'bg-secondary text-white'}`}>
                 Salad
             </Link>
-            <Link href="/customer/Side" className="text-blue-500 text-center flex-grow:1"style={{ backgroundColor: isSide ? '#fff' : '#000' }}>
+            <Link href="/customer/Side" className={`flex items-center justify-center text-bold text-4xl text-center flex-grow  ${pathname == '/customer/Side' ? 'bg-primary text-black' : 'bg-secondary text-white'}`}>
                 Sides
             </Link>
         </nav>

@@ -26,6 +26,7 @@ export default function Customer(){
             return(
               <a href={`/customer/${image.category}/${image.foodid}`} key={image.foodid}>
               <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8 card-zoom">
+              <div className="absolute inset-0 h-full w-full">
                   <Image
                   alt=""
                   src={image.imagesrc}
@@ -36,6 +37,7 @@ export default function Customer(){
                   //placeholder="blur"
                   className="w-full h-full top-0 left-0 object-cover rounded-2xl card-zoom-image shadow-xlg"
                   />
+                </div>
               </div>
               <h3 className="mt-4 capitalize hover:uppercase text-gray-700 text-center font-bold hover:text-blue-500">{image.name}</h3>
               </a>
