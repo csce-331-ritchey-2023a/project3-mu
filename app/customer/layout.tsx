@@ -19,9 +19,9 @@ export default function RootLayout({
     return (
     
   <html lang="en">
-   <body className="bg-yellow ">
-    <div className='flex '>
-        <nav className="bg-gray-800 h-screen w-1/3 flex justify-between flex-col flex-grow">
+    <body>
+    <div className='flex bg-yellow'>
+        <nav className="bg-gray-800 h-screen w-1/3 flex justify-between flex-col flex-grow ">
             <Link href="/customer/Sand" className="text-blue-500 text-center flex-grow:1" style={{ backgroundColor: isSand ? '#fff' : '#000' }}>
                 Sandwiches
             </Link>
@@ -35,10 +35,9 @@ export default function RootLayout({
                 Sides
             </Link>
         </nav>
-        <div>{children}</div>
+        <main>{children}</main>
     </div>
-    
-   </body>
+    </body>
   </html>
  );
 }
