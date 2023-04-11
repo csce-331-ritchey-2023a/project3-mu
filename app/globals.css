@@ -19,22 +19,60 @@
     justify-content: center;
     align-items: center;
     height: 80px;
-    background-color: #0360cac4;
+    background-color: #00288A;
   }
-
+  
   .bannerTitle {
     color: #fff;
     font-weight: bold;
     font-size: 46px;
   }
-
+  
   .bannerLogo {
     margin-right: 10px;
   }
-
+  
   .logoImage {
-  display: inline-block;
-  vertical-align: middle;
-  width: 100px;
-  height: 100px;
-}
+    display: inline-block;
+    vertical-align: middle;
+    width: 100px;
+    height: 100px;
+  }
+
+  .pair {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+  }
+  
+  .textbox {
+    background-color: #d3d3d3;
+    text-align: center;
+    padding: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    margin-right: 10px;
+    flex: 1;
+    width: 300px;
+  }
+  
+  .dropdown {
+    margin-left: 20px;
+    margin-right: 20px;
+    flex: 1;
+  }
+  
+  select {
+    font-size: 24px;
+    padding: 5px;
+    border-radius: 5px;
+    width: 100%;
+  }
+  
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
