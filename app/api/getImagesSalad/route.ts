@@ -6,6 +6,9 @@ export async function GET(request: Request) {
   try{
     //fetch items photos with prisma
     const data = await prisma.menuimages.findMany({
+      where:{
+        "category":"Salad",
+      },
       select: {
         "foodid":true, 
         "imagesrc":true, 
@@ -16,7 +19,7 @@ export async function GET(request: Request) {
     //console.log('getImages data:', data);
     return NextResponse.json(data)
   }catch(error){
-    console.log('getImages error:', error);
+    console.log('getImagesSalad error:', error);
     return null
   }
 }

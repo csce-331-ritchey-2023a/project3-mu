@@ -34,6 +34,7 @@ model pos_transactions {
 }
 
 /// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
 model relationss {
   foodid Int @id
   itemid Int?
@@ -41,13 +42,15 @@ model relationss {
 }
 
 /// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
 model reports {
-  foodid      Int @id
+  foodid      Int
   name        String    @db.VarChar(255)
   number_sold Int
   inventory   Int
   date        DateTime? @db.Date
 
+  @@ignore
 }
 
 model sales {
@@ -69,4 +72,5 @@ model menuimages {
   foodid   Int     @id
   imagesrc String?
   name     String?
+  category String? @db.VarChar(256)
 }

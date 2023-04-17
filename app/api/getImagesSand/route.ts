@@ -6,6 +6,9 @@ export async function GET(request: Request) {
   try{
     //fetch items photos with prisma
     const data = await prisma.menuimages.findMany({
+      where:{
+        "category":"Sand",
+      },
       select: {
         "foodid":true, 
         "imagesrc":true, 
