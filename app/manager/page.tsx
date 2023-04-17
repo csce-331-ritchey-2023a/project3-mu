@@ -19,44 +19,47 @@ export default function Manager() {
           />
         </div>
         <h1 className="bannerTitle">Manager Dashboard</h1>
+      </div>
+      <div className="center">
+        <div className="pair">
+          <div className="textbox">
+            Top 5 Sellers
+          </div>
+          <div className="dropdown">
+            <select>
+              <option value="item1">Today</option>
+              <option value="item2">Yesterday</option>
+              <option value="item3">04/09/2023</option>
+              <option value="item4">04/08/2023</option>
+            </select>
+          </div>
+          <div className="textbox">
+            Most Used Item
+          </div>
+          <div className="dropdown">
+            <select>
+              <option value="item1">Today</option>
+              <option value="item2">Yesterday</option>
+              <option value="item3">04/09/2023</option>
+              <option value="item4">04/08/2023</option>
+            </select>
+          </div>
+          <div className="textbox">
+            Order By
+          </div>
+          <div className="dropdown">
+            <select>
+              <option value="item1">Yesterday</option>
+              <option value="item2">04/09/2023</option>
+              <option value="item3">04/08/2023</option>
+              <option value="item4">04/07/2023</option>
+            </select>
+          </div>
         </div>
-  <div className="center">
-    <div className="pair">
-      <div className="textbox">
-        Top 5 Sellers
+        <div className="whitebox">
+          This is a white text box below the pairings.
+        </div>
       </div>
-      <div className="dropdown">
-        <select>
-          <option value="item1">Today</option>
-          <option value="item2">Yesterday</option>
-          <option value="item3">04/09/2023</option>
-          <option value="item4">04/08/2023</option>
-        </select>
-      </div>
-      <div className="textbox">
-        Most Used Item
-      </div>
-      <div className="dropdown">
-        <select>
-          <option value="item1">Today</option>
-          <option value="item2">Yesterday</option>
-          <option value="item3">04/09/2023</option>
-          <option value="item4">04/08/2023</option>
-        </select>
-      </div>
-      <div className="textbox">
-        Order By
-      </div>
-      <div className="dropdown">
-        <select>
-          <option value="item1">Yesterday</option>
-          <option value="item2">04/09/2023</option>
-          <option value="item3">04/08/2023</option>
-          <option value="item4">04/07/2023</option>
-        </select>
-      </div>
-    </div>
-  </div>
-</main>
+    </main>
   )
 }
