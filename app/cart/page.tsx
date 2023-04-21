@@ -1,27 +1,29 @@
-'use client'
+"use client";
+import CartItemCard from "../../components/CartItemCard";
+import React from "react";
+import { totalPriceSelector } from "../../store/features/cartSlice";
+import { useAppSelector } from "../../store/store";
 
-import Link from "next/link"
-import { use } from "react"
-import '../globals.css'
-import Image from 'next/image'
-import ProductCard from "@/components/ProductCard"
+const CartPage = () => {
+  const cartItems = useAppSelector(
+    (state:any) => state.cart.cartItems
+  );
 
-async function getImagesProduct(){
-    const res = await fetch(`${process.env.BASE_URL}/api/getImagesProduct`, {cache: "no-store"})
-    if(!res.ok){
-      console.log("result + ", res)
-    }
-    return await(res).json
-}
+  const totalPrice = useAppSelector(totalPriceSelector);
+  return (
+    <div className="p-2">
+      {cartItems.map((item:any) => (
+        <CartItemCard cartItem={item} />
+      ))}
 
-export default function Home() {
-    const products = use(getImagesProduct())
-    console.log(products)
-    return (
-        <div>
-        {products.map((product:any) => {
-            <ProductCard key={product.id} product={product}/>
-        })}
-        </div>
-    )
-}
+      <p className="text-slate-600">
+        Total Price:{" "}
+        <span className="text-slate-900 font-bold">
+          {totalPrice} $
+        </span>
+      </p>
+    </div>
+  );
+};
+
+export default CartPage;

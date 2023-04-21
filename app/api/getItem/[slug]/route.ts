@@ -2,7 +2,7 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 import {NextResponse} from "next/server"
 
-export async function GET(request: Request) {
+export async function GET(request: Request, { params }: {params: { slug:string}}) {
   try{
     //fetch items photos with prisma
     const data = await prisma.menuimages.findMany({
@@ -11,6 +11,8 @@ export async function GET(request: Request) {
         "imagesrc":true, 
         "name":true,
         "category":true
+      },where:{
+        "foodid":parseInt(params.slug),
       }
     })
     //console.log('getImages data:', NextResponse.json(data));
