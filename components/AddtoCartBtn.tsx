@@ -4,7 +4,7 @@ import React from "react";
 import {
   decrement,
   increment,
-  productQtySelector,
+  productQtyInCartSelector,
 } from "../store/features/cartSlice";
 import {
   useAppDispatch,
@@ -19,7 +19,7 @@ interface Props {
 
 const AddToCartBtn = (props: Props) => {
   const qty = useAppSelector((state) =>
-  productQtySelector(state, props.product.id)
+  productQtyInCartSelector(state, props.product.id)
   );
   const dispatch = useAppDispatch();
   if (!qty)

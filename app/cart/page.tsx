@@ -1,7 +1,7 @@
 "use client";
 import CartItemCard from "../../components/CartItemCard";
 import React from "react";
-import { totalPriceSelector } from "../../store/features/cartSlice";
+import { TotalPriceSelector } from "../../store/features/cartSlice";
 import { useAppSelector } from "../../store/store";
 
 const CartPage = () => {
@@ -9,7 +9,7 @@ const CartPage = () => {
     (state:any) => state.cart.cartItems
   );
 
-  const totalPrice = useAppSelector(totalPriceSelector);
+  const totalPrice = useAppSelector(TotalPriceSelector);
   return (
     <div className="p-2">
       {cartItems.map((item:any) => (

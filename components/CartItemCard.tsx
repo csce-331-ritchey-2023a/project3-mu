@@ -1,11 +1,11 @@
-import { CartItem } from "interfaces";
+import { CartItem } from "../interfaces";
 import Image from "next/image";
 import React from "react";
 import {
   decrement,
   increment,
-} from "store/features/cartSlice";
-import { useAppDispatch } from "store/store";
+} from "../store/features/cartSlice";
+import { useAppDispatch } from "../store/store";
 import QtyBtn from "./QtyBtn";
 
 interface Props {
