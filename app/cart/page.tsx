@@ -11,7 +11,8 @@ const CartPage = () => {
 
   const totalPrice = useAppSelector(TotalPriceSelector);
   return (
-    <div className="p-2">
+    
+    <body className="p-2 bg-primary">
       {cartItems.map((item:any) => (
         <CartItemCard cartItem={item} />
       ))}
@@ -19,10 +20,14 @@ const CartPage = () => {
       <p className="text-slate-600">
         Total Price:{" "}
         <span className="text-slate-900 font-bold">
-          {totalPrice} $
+        ${totalPrice}
         </span>
       </p>
-    </div>
+      <div>
+        <h1 className="flex justify-center">Checkout</h1>
+      </div>
+    </body>
+
   );
 };
 

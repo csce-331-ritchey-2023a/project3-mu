@@ -1,7 +1,7 @@
 const getVariant = (variant?: VariantType) => {
     switch (variant) {
       case "primary":
-        return "bg-violet-500 hover:bg-violet-700  text-white shadow shadow-violet-600/25 hover:shadow-violet-600/75";
+        return "bg-secondary hover:bg-secondary  text-white shadow shadow-secondary/25 hover:shadow-secondary/75";
       case "danger":
         return "bg-red-500 hover:bg-red-700 text-white  shadow shadow-red-600/25 hover:shadow-red-600/75";
       case "success":
@@ -17,10 +17,10 @@ const getVariant = (variant?: VariantType) => {
       case "outline-warning":
         return "bg-white text-amber-400 border border-amber-500 hover:text-white hover:bg-amber-500  ";
       case "outline-primary":
-        return "bg-white text-violet-500 border border-violet-500 hover:text-white hover:bg-violet-700  ";
+        return "bg-white text-secondary border border-secondary hover:text-white hover:bg-secondary  ";
   
       default:
-        return "bg-violet-500 hover:bg-violet-700 text-white shadow shadow-violet-600/25 hover:shadow-violet-600/75";
+        return "bg-secondary hover:bg-secondary text-white shadow shadow-secondary/25 hover:shadow-secondary/75";
     }
   };
   

@@ -1,5 +1,5 @@
 // /app/layout.tsx
-'use client';
+'use client'
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -20,12 +20,13 @@ export default function RootLayout({
     <body>
     
     <div className='flex bg-primary'>
-        <Providers>
-        <Link className="text-right " href={"/cart"}>
-            <CartBtn />
-        </Link>
-            {/* {children} */}
-        </Providers>
+            <Providers>
+            <Link className="text-right " href={"/cart"}>
+                <CartBtn />
+            </Link>
+                {/* {children} */}
+            </Providers>
+
         <nav className="bg-secondary h-screen w-1/3 flex flex-col ">
             <Link href="/customer/Sand" className={`flex items-center justify-center text-bold text-4xl text-center flex-grow  ${pathname ==  '/customer/Sand'? 'bg-primary text-black' : 'bg-secondary text-white'}`}>
                 Sandwiches
@@ -39,9 +40,12 @@ export default function RootLayout({
             <Link href="/customer/Side" className={`flex items-center justify-center text-bold text-4xl text-center flex-grow  ${pathname == '/customer/Side' ? 'bg-primary text-black' : 'bg-secondary text-white'}`}>
                 Sides
             </Link>
+            
         </nav>
-        <main>{children}</main>
+        <main><Providers>{children}</Providers>     </main>
+        
     </div>
+
     </body>
   </html>
  );
