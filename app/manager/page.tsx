@@ -1,11 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { Inter } from 'next/font/google'
 import { use } from "react"
 import 'app/globals.css'
 import React from "react";
-
-const inter = Inter({ subsets: ['latin'] })
 
 async function Get_X_Report(){
   const res = await fetch(`${process.env.BASE_URL}/api/Get_X_Report`, {cache: "no-store"})
@@ -15,9 +12,8 @@ async function Get_X_Report(){
   return await(res).json()
 }
 
+export default async function Manager() {
 
-
-export default function Manager() {
   const X_Report = use(Get_X_Report())
   return (
     <main>
@@ -72,7 +68,6 @@ export default function Manager() {
           </div>
           ))}
         </div>
-        
       </div>
     </main>
   )

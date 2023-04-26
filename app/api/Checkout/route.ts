@@ -15,10 +15,10 @@ export async function GET(request: Request, { params }: {params: { slug:string}}
         "foodid":parseInt(params.slug),
       }
     })
-    //console.log('getImages data:', NextResponse.json(data));
+    console.log('Checkout data:', NextResponse.json(data));
     return NextResponse.json(data)
   }catch(error){
-    console.log('getItems error:', error);
+    console.log('Checkout error:', error);
     return null
   }
 }
