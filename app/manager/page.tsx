@@ -1,11 +1,24 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Inter } from 'next/font/google'
+import { use } from "react"
 import 'app/globals.css'
+import React from "react";
 
 const inter = Inter({ subsets: ['latin'] })
 
+async function Get_X_Report(){
+  const res = await fetch(`${process.env.BASE_URL}/api/Get_X_Report`, {cache: "no-store"})
+  if(!res.ok){
+    console.log("result + ", res)
+  }
+  return await(res).json()
+}
+
+
+
 export default function Manager() {
+  const X_Report = use(Get_X_Report())
   return (
     <main>
       <div className="banner">
@@ -20,39 +33,10 @@ export default function Manager() {
         </div>
         <h1 className="bannerTitle">Manager Dashboard</h1>
       </div>
+
       <div className="center">
         <div className="pair">
-          <div className="textbox">
-            Top 5 Sellers
-          </div>
-          <div className="dropdown">
-            <select>
-              <option value="item1">Today</option>
-              <option value="item2">Yesterday</option>
-              <option value="item3">04/09/2023</option>
-              <option value="item4">04/08/2023</option>
-            </select>
-          </div>
-          <div className="textbox">
-            Most Used Item
-          </div>
-          <div className="dropdown">
-            <select>
-              <option value="item1">Today</option>
-              <option value="item2">Yesterday</option>
-              <option value="item3">04/09/2023</option>
-              <option value="item4">04/08/2023</option>
-            </select>
-          </div>
-          <div className="textbox">
-            Order By
-          </div>
-          <div className="dropdown">
-            <select>
-              <option value="item1">Yesterday</option>
-              <option value="item2">04/09/2023</option>
-              <option value="item3">04/08/2023</option>
-              <option value="item4">04/07/2023</option>
+
           <button type="button" className="textbox">
             Execute Sales Report
           </button>
@@ -80,12 +64,17 @@ export default function Manager() {
             </select>
           </div>
         </div>
-        <div className="whitebox">
-          This is a white text box below the pairings.
-          For Sales and Excess Reports Enter Data in MM/DD/YYYY form
+
+        <div className="whitebox" style={{ height: "auto" }}>
+          {X_Report.map((item: any) => (
+          <div key={item.foodid}>
+            <p>Name: {item.name}, Food ID: {item.foodid}, Price: {item.price}</p>
+          </div>
+          ))}
         </div>
+        
       </div>
     </main>
   )
 }
-}
+
