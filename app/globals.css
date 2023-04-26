@@ -62,6 +62,19 @@
     margin-left: 20px;
     margin-right: 20px;
     flex: 1;
+    width: 200px;
+  }
+
+  .Input_Box{
+    flex: 1;
+    width: 200px;
+    padding: 10px;
+    margin-right: 10px;
+  }
+  
+  .dropdown {
+    flex: 1;
+    width: 200px;
   }
   
   select {

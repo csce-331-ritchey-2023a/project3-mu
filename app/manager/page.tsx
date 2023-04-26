@@ -53,13 +53,39 @@ export default function Manager() {
               <option value="item2">04/09/2023</option>
               <option value="item3">04/08/2023</option>
               <option value="item4">04/07/2023</option>
+          <button type="button" className="textbox">
+            Execute Sales Report
+          </button>
+          <div className="Input_Box">
+            <input type="text" placeholder="Enter Starting Date (MM/DD/YYYY)" />
+          </div>
+          <div className="Input_Box">
+            <input type="text" placeholder="Enter Ending Date (MM/DD/YYYY)" />
+          </div>
+
+          <button type="button" className="textbox">
+            Execute Excess Report
+          </button>
+          <div className="Input_Box">
+            <input type="text" placeholder="Enter information" />
+          </div>
+
+          <button type="button" className="textbox">
+            Execute Report:
+          </button>
+          <div className="dropdown">
+            <select>
+              <option value="item1">X Report</option>
+              <option value="item2">Z Report</option>
             </select>
           </div>
         </div>
         <div className="whitebox">
           This is a white text box below the pairings.
+          For Sales and Excess Reports Enter Data in MM/DD/YYYY form
         </div>
       </div>
     </main>
   )
+}
 }
