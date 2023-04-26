@@ -10,7 +10,7 @@ async function getItems(){
 }
 
 export default function Home() {
-  const data = use(getItems())
+  //const data = use(getItems())
   //console.log(data)
   return (
     <main>

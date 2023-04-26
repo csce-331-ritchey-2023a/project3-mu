@@ -19,7 +19,7 @@ export async function GET(request: Request) {
     console.log(data);
     return NextResponse.json(data)
   }catch(error){
-    console.log('getImages error:', error);
+    console.log('Get_X_Report error:', error);
     return null
   }
 }

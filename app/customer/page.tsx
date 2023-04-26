@@ -3,7 +3,7 @@ import { use } from "react"
 import 'app/globals.css'
 
 async function getImages(){
-    const res = await fetch(`${process.env.BASE_URL}/api/getImages`, {cache: "no-store"})
+    const res = await fetch(`${process.env.BASE_URL}/api/getImages`)
     if(!res.ok){
       console.log("result + ", res)
     }

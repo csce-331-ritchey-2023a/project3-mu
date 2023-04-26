@@ -50,7 +50,6 @@ export default function Customer({
           className="w-full h-full top-0 left-0 object-cover rounded-2xl card-zoom-image shadow-xlg"
           />
         </div>
-        
       </div>
       <AddToCartBtn product={thisProduct} />
     </main>
