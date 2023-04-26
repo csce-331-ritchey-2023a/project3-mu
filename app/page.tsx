@@ -20,13 +20,7 @@ export default function Home() {
         <Link href = {"/manager"}>Go To Manager </Link>
       </nav>
       <div>
-        {data.map((menuItem:any)=>{
-        return(
-          <ul className="text-3xl font-bold underline" key={menuItem.foodid}>
-            <li>{menuItem.name}</li>
-          </ul>
-        )
-      })}
+        <h1>Welcome to Houston Street Subs!</h1>
       </div>
     </main>
   )
