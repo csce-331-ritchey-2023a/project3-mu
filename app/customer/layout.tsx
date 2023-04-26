@@ -21,10 +21,9 @@ export default function RootLayout({
     
     <div className='flex bg-primary'>
             <Providers>
-            <Link className="text-right " href={"/cart"}>
-                <CartBtn />
-            </Link>
-                {/* {children} */}
+                <Link className="text-right " href={"/cart"}>
+                    <CartBtn />
+                </Link>
             </Providers>
 
         <nav className="bg-secondary h-screen w-1/3 flex flex-col ">
@@ -42,7 +41,7 @@ export default function RootLayout({
             </Link>
             
         </nav>
-        <main><Providers>{children}</Providers>     </main>
+        <Providers>{children}</Providers>
         
     </div>
 

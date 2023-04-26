@@ -1,14 +1,18 @@
+'use client'
 import Image from 'next/image'
-import { use } from "react"
 import 'app/globals.css'
+import AddToCartBtn from '@/components/AddtoCartBtn'
+import { use } from 'react';
+import { Product } from '../../../../interfaces';
 
-async function getImages(){
-    const res = await fetch(`${process.env.BASE_URL}/api/getImages`, {cache: "no-store"})
+async function getItem(slug:string){
+    let res = await fetch("http://localhost:3000/api/getItem/"+ slug, {cache: "no-store"})
+    //console.log(`${process.env.BASE_URL}/api/getItem/`+params)
     if(!res.ok){
-      console.log("result + ", res)
+      console.log(res)
     }
     return await(res).json()
-}
+};
 
 // type Image = {
 //     foodid: number
@@ -21,13 +25,34 @@ export default function Customer({
 }: {
   params: { slug: string };
 }){
-    const slug = params.slug
-    //console.log(images)
+    let item = use(getItem(params.slug))
+    //const parsed = (item[0]).json()
+    //console.log((item[0]))
+    let thisProduct:Product = {
+      id: parseInt(item[0].foodid),
+      name: (item[0].name),
+      price: 10, // to be actual price
+      imagePath:(item[0].imagesrc),
+    };
+    //console.log(thisProduct.imagePath)
     return(
-        <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8 " >
-        <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-        <h1>{slug}</h1>
+    <main>
+      <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8 card-zoom">
+      <div className="absolute inset-0 h-full w-full">
+          <Image
+          alt=""
+          src={thisProduct.imagePath}
+          //fill={true}
+          width = "500"
+          height = "500"
+          object-fit="cover"
+          //placeholder="blur"
+          className="w-full h-full top-0 left-0 object-cover rounded-2xl card-zoom-image shadow-xlg"
+          />
+        </div>
+        
       </div>
-    </div>
+      <AddToCartBtn product={thisProduct} />
+    </main>
     )
 }
