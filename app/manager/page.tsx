@@ -6,7 +6,7 @@ import 'app/globals.css'
 import React from "react";
 
 async function Get_X_Report(){
-  const res = await fetch(`${process.env.BASE_URL}/api/Get_X_Report`, {cache: "no-store"})
+  const res = await fetch("/api/Get_X_Report", {cache: "no-store"})
   if(!res.ok){
     console.log("result + ", res)
   }

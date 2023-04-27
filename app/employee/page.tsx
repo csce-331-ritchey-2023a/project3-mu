@@ -43,7 +43,7 @@ const TopBar = () => {
 };
 
 async function getName(){
-  const res = await fetch(`${process.env.BASE_URL}/api/getName`, {cache: "no-store"})
+  const res = await fetch("/api/getName", {cache: "no-store"})
   if(!res.ok){
     console.log("result + ", res)
   }
@@ -51,7 +51,7 @@ async function getName(){
 }
 
 async function getName2(){
-  const res = await fetch(`${process.env.BASE_URL}/api/getName2`, {cache: "no-store"})
+  const res = await fetch("/api/getName2", {cache: "no-store"})
   if(!res.ok){
     console.log("result + ", res)
   }
@@ -59,7 +59,7 @@ async function getName2(){
 }
 
 async function getName3(){
-  const res = await fetch(`${process.env.BASE_URL}/api/getName3`, {cache: "no-store"})
+  const res = await fetch("/api/getName3", {cache: "no-store"})
   if(!res.ok){
     console.log("result + ", res)
   }
@@ -67,7 +67,7 @@ async function getName3(){
 }
 
 async function getName4(){
-  const res = await fetch(`${process.env.BASE_URL}/api/getName4`, {cache: "no-store"})
+  const res = await fetch("/api/getName4", {cache: "no-store"})
   if(!res.ok){
     console.log("result + ", res)
   }
