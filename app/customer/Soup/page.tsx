@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { use } from "react"
 import 'app/globals.css'
-
+import Link from 'next/link'
 async function getImagesSoup(){
     const res = await fetch("/api/getImagesSoup", {cache: "no-store"})
     if(!res.ok){
@@ -26,7 +26,7 @@ export default function Customer(){
         <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
           {images.map((image:any) => {
             return(
-              <a href={`/customer/${image.category}/${image.foodid}`} className="group" key={image.foodid}>
+              <Link href={`/customer/${image.category}/${image.foodid}`} className="group" key={image.foodid}>
               <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8 card-zoom">
                   <Image
                   alt=""
@@ -40,7 +40,7 @@ export default function Customer(){
                   />
               </div>
               <h3 className="mt-4 capitalize hover:uppercase text-gray-700 text-center font-bold hover:text-blue-500">{image.name}</h3>
-              </a>
+              </Link>
           )})}
       </div>
     </div>
