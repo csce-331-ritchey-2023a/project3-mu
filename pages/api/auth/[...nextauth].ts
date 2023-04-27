@@ -12,11 +12,7 @@ export const authOptions: AuthOptions = {
     async signIn({ user }) {
       let isAllowedToSignIn = true
       const allowedUser = [
-        'Carter Patton',
-        'Sam Bierle',
-        'Santiago Fonseca',
-        'Anuska Pant',
-        'Philip Ritchey'
+        'Carter Patto',
       ];
       console.log(user);
       if (allowedUser.includes(String(user.name))) {

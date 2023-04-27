@@ -6,16 +6,19 @@ import { useAppSelector } from "../../store/store";
 import { use } from "react";
 import { Provider } from "react-redux";
 
-async function Checkout(slug:string){
-  let res = await fetch("http://localhost:3000/api/Checkout/"+ slug, {cache: "no-store"})
-  //console.log(`${process.env.BASE_URL}/api/getItem/`+params)
-  if(!res.ok){
-    console.log(res)
-  }
-  return await(res).json()
-};
-
 const CartPage = () => {
+  const Checkout = async () => {
+		try {
+			const res = await fetch(
+        `${process.env.BASE_URL}/api/Checkout/221`, {cache: "no-store"}
+			);
+			const data = await res.json();
+			console.log(data);
+		} catch (err) {
+			console.log(err);
+		}
+	};
+
   const cartItems = useAppSelector(
     (state:any) => state.cart.cartItems
   );
@@ -34,11 +37,9 @@ const CartPage = () => {
         </span>
       </p>
       <div>
-        <h1> Checkout</h1>
-          <button className="flex justify-center" onClick={use(Checkout("221"))}>Checkout</button>        
+          <button className="justify-center hover-grey " onClick={Checkout}>Checkout</button>        
       </div>
     </body>
-
   );
 };
 

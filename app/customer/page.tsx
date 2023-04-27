@@ -1,6 +1,8 @@
+'use client'
 import Image from 'next/image'
 import { use } from "react"
 import 'app/globals.css'
+//import { createContext } from 'react'
 
 async function getImages(){
     const res = await fetch(`${process.env.BASE_URL}/api/getImages`, {cache: "no-store"})

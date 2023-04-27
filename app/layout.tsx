@@ -1,19 +1,37 @@
-import Providers from '@/components/Providers';
-import './globals.css';
+import { Session } from 'next-auth'
+import { headers } from 'next/headers'
+import AuthContext from './AuthContext';
 
-export const metadata = {
-  title: 'Houston Street Subs PoS',
-  description: 'Team Mu Project 3',
+async function getSession(cookie: string): Promise<Session> {
+  const response = await fetch(`${process.env.BASE_URL}/api/auth/session`, {
+    headers: {
+      cookie,
+    },
+  });
+
+  const session = await response.json();
+
+  return Object.keys(session).length > 0 ? session : null;
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode,
 }) {
+  const session = await getSession(headers().get('cookie') ?? '');
   return (
     <html lang="en">
-      <body className="bg-primary ">{children}</body>
+      {/*
+        <head /> will contain the components returned by the nearest parent
+        head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
+      */}
+      <head />
+      <body>
+        <AuthContext session={session}>
+          {children}
+        </AuthContext>
+      </body>
     </html>
   )
 }
