@@ -5,19 +5,20 @@ import { TotalPriceSelector } from "../../store/features/cartSlice";
 import { useAppSelector } from "../../store/store";
 import { use } from "react";
 import { Provider } from "react-redux";
+import Link from "next/link";
 
 const CartPage = () => {
-  const Checkout = async () => {
-		try {
-			const res = await fetch(
-        `${process.env.BASE_URL}/api/Checkout/221`, {cache: "no-store"}
-			);
-			const data = await res.json();
-			console.log(data);
-		} catch (err) {
-			console.log(err);
-		}
-	};
+  // const Checkout = async () => {
+	// 	try {
+	// 		const res = await fetch(
+  //       `${process.env.BASE_URL}/api/Checkout/221`, {cache: "no-store"}
+	// 		);
+	// 		const data = await res.json();
+	// 		console.log(data);
+	// 	} catch (err) {
+	// 		console.log(err);
+	// 	}
+	// };
 
   const cartItems = useAppSelector(
     (state:any) => state.cart.cartItems
@@ -36,8 +37,13 @@ const CartPage = () => {
         ${totalPrice}
         </span>
       </p>
-      <div>
-          <button className="justify-center hover-grey " onClick={Checkout}>Checkout</button>        
+      <div className="flex justify-center items-center">
+          <button className="mx-auto rounded-lg bg-red-500 hover:bg-gray-500 py-2 px-4 text-white ">
+            <Link href="/customer">Order More</Link>  
+          </button>
+          <button className="mx-auto rounded-lg bg-red-500 hover:bg-gray-500 py-2 px-4 text-white ">
+            <Link href="/customer">Checkout</Link>  
+          </button>         
       </div>
     </body>
   );

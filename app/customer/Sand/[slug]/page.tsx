@@ -6,8 +6,8 @@ import { use } from 'react';
 import { Product } from '../../../../interfaces';
 
 async function getItem(slug:string){
-    let res = await fetch("http://localhost:3000/api/getItem/"+ slug, {cache: "no-store"})
-    //console.log(`${process.env.BASE_URL}/api/getItem/`+params)
+    let res = await fetch("/api/getItem/"+ slug, {cache: "no-store"})
+    //console.log(`${process.env.BASE_URL}/api/getItem/`+slug)
     if(!res.ok){
       console.log(res)
     }

@@ -4,7 +4,7 @@ import { use } from "react"
 import 'app/globals.css'
 
 async function getImagesSalad(){
-    const res = await fetch(`${process.env.BASE_URL}/api/getImagesSalad`, {cache: "no-store"})
+    const res = await fetch("/api/getImagesSalad", {cache: "no-store"})
     if(!res.ok){
       console.log("result + ", res)
     }
