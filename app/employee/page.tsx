@@ -4,32 +4,10 @@ import Image from 'next/image'
 import { use } from "react"
 import { Inter } from 'next/font/google'
 import React from "react";
+import GoogleTranslate from "./GoogleTranslate"
 
 const inter = Inter({ subsets: ['latin'] })
 
-const GreenButton = ({ text }: { text: string }) => (
-  <button className="w-24 h-24 bg-green-500 hover:bg-green-700 text-white font-bold rounded-lg focus:outline-none focus:shadow-outline">
-    {text}
-  </button>
-);
-
-const PinkButton = ({ text }: { text: string }) => (
-  <button className="w-24 h-24 bg-pink-500 hover:bg-pink-700 text-white font-bold rounded-lg focus:outline-none focus:shadow-outline">
-    {text}
-  </button>
-);
-
-const TealButton = ({ text }: { text: string }) => (
-  <button className="w-24 h-24 bg-teal-500 hover:bg-teal-700 text-white font-bold rounded-lg focus:outline-none focus:shadow-outline">
-    {text}
-  </button>
-);
-
-const BlackButton = ({ text }: { text: string }) => (
-  <button className="w-24 h-24 bg-black hover:bg-gray-700 text-white font-bold rounded-lg focus:outline-none focus:shadow-outline">
-    {text}
-  </button>
-);
 
 const TopBar = () => {
   return (
@@ -110,6 +88,8 @@ export default function Employee() {
 
       <div className="p-4 relative">
         <TopBar />
+        <GoogleTranslate/>
+        
         <div className="flex justify-between mr-1">
           <div className="flex flex-col items-start">
             {names.map((item: any) => (
