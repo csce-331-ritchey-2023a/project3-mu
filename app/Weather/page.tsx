@@ -1,8 +1,8 @@
 "use client"
 import { useState, useEffect } from "react";
 
-const API_KEY = "4c370ab7005159f6a3bb849c76366723";
-const CITY_NAME = "Chicago";
+//const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
+const CITY_NAME = "College_Station";
 
 type WeatherData = {
   description: string;
@@ -18,7 +18,6 @@ export default function Weather(): JSX.Element {
   useEffect(() => {
     fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=College%20Station&appid=4c370ab7005159f6a3bb849c76366723`
-      // `https://api.openweathermap.org/data/2.5/weather?q=${CITY_NAME}&appid=${API_KEY}`
     )
       .then((res) => res.json())
       .then((data) => {
