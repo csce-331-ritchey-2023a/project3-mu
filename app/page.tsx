@@ -18,6 +18,7 @@ export default function Home() {
         <Link href = {"/customer"}>Go To Customer </Link>
         <Link href = {"/employee"}>Go To Employee </Link>
         <Link href = {"/manager"}>Go To Manager </Link>
+        <Link href = {"/Weather"}>Go To Weather </Link>
       </nav>
       <div>
         <h1>Welcome to Houston Street Subs!</h1>
