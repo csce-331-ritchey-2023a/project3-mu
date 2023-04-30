@@ -1,20 +1,23 @@
-'use client'
 import Image from 'next/image'
 import Link from 'next/link'
+import { Inter } from 'next/font/google'
 import { use } from "react"
 import 'app/globals.css'
 import React from "react";
 
+const inter = Inter({ subsets: ['latin'] })
+
 async function Get_X_Report(){
-  const res = await fetch("/api/Get_X_Report", {cache: "no-store"})
+  const res = await fetch(`${process.env.BASE_URL}/api/Get_X_Report`, {cache: "no-store"})
   if(!res.ok){
     console.log("result + ", res)
   }
   return await(res).json()
 }
 
-export default async function Manager() {
 
+
+export default function Manager() {
   const X_Report = use(Get_X_Report())
   return (
     <main>
@@ -38,10 +41,10 @@ export default async function Manager() {
             Execute Sales Report
           </button>
           <div className="Input_Box">
-            <input type="text" placeholder="Enter Starting Date (MM/DD/YYYY)" />
+            <input type="text" placeholder="Enter Starting Date" />
           </div>
           <div className="Input_Box">
-            <input type="text" placeholder="Enter Ending Date (MM/DD/YYYY)" />
+            <input type="text" placeholder="Enter Ending Date" />
           </div>
 
           <button type="button" className="textbox">
@@ -62,15 +65,34 @@ export default async function Manager() {
           </div>
         </div>
 
-        <div className="whitebox" style={{ height: "auto" }}>
-          {X_Report.map((item: any) => (
-          <div key={item.foodid}>
-            <p>Name: {item.name}, Food ID: {item.foodid}, Price: {item.price}</p>
+        <div className="center">
+          <div className="pair">
+            <div className="whitebox" style={{ height: "auto" }}>
+              {X_Report.map((item: any) => (
+                <div key={item.foodid}>
+                  <p>Name: {item.name}, Food ID: {item.foodid}, Price: {item.price}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="whitebox" style={{ height: "auto" }}>
+              {X_Report.map((item: any) => (
+                <div key={item.foodid}>
+                  <p>Name: {item.name}, Food ID: {item.foodid}, Price: {item.price}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="whitebox" style={{ height: "auto" }}>
+              {X_Report.map((item: any) => (
+                <div key={item.foodid}>
+                  <p>Name: {item.name}, Food ID: {item.foodid}, Price: {item.price}</p>
+                </div>
+              ))}
+            </div>
           </div>
-          ))}
         </div>
       </div>
     </main>
   )
 }
-
