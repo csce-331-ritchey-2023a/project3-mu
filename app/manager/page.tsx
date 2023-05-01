@@ -78,7 +78,7 @@ export default function Manager() {
   const { description, icon, temperature, feelsLike, humidity } = weatherData;
 
   return (
-    <main>
+    <main className='bg-primary'>
       <div className="banner">
         <nav className = "py-78 px-78 no-underline">
           <div className="links">
