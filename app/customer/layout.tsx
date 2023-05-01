@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Providers from '@/components/Providers';
 import CartBtn from '@/components/CartBtn';
+import Image from 'next/image';
 export default function RootLayout({
  children,
 }: {
@@ -18,13 +19,24 @@ export default function RootLayout({
   <html lang="en">
     <head />
     <body>
-    
+    <div className="banner">
+        <div className="bannerLogo">
+          <Image
+            src="https://api.dineoncampus.com/files/images/f864520e-32e6-442e-92ab-b77a90523603.png"
+            alt="Houston Street Subs Logo"
+            width={80}
+            height={80}
+            className="logoImage"
+          />
+        </div>
+        <h1 className="bannerTitle">Customer Dashboard</h1>
+        <Providers>
+            <Link className="flex justify-between" href={"/cart"}>
+                <CartBtn />
+            </Link>
+        </Providers>
+    </div>
     <div className='flex bg-primary'>
-            <Providers>
-                <Link className="text-right " href={"/cart"}>
-                    <CartBtn />
-                </Link>
-            </Providers>
 
         <nav className="bg-secondary h-screen w-1/3 flex flex-col ">
             <Link href="/customer/Sand" className={`flex items-center justify-center text-bold text-4xl text-center flex-grow  ${pathname ==  '/customer/Sand'? 'bg-primary text-black' : 'bg-secondary text-white'}`}>

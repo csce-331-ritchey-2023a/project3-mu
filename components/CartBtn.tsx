@@ -14,7 +14,7 @@ const CartBtn = (props: Props) => {
   const totalItems = useAppSelector(totalCartItemsSelector);
   return (
     <div className={`${props.className} relative`}>
-      <ShoppingCartIcon className="w-9 text-slate-600" />
+      <ShoppingCartIcon className="w-12 text-primary border border-primary" />
       {!!totalItems && (
         <div
           key={totalItems}
