@@ -36,22 +36,22 @@ export default function Customer({
     };
     //console.log(thisProduct.imagePath)
     return(
-    <main>
-      <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8 card-zoom">
-      <div className="absolute inset-0 h-full w-full">
-          <Image
-          alt=""
-          src={thisProduct.imagePath}
-          //fill={true}
-          width = "500"
-          height = "500"
-          object-fit="cover"
-          //placeholder="blur"
-          className="w-full h-full top-0 left-0 object-cover rounded-2xl card-zoom-image shadow-xlg"
-          />
+      <body>
+        <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8 card-zoom">
+          <div className="absolute inset-0 h-full w-full">
+            <Image
+            alt=""
+            src={thisProduct.imagePath}
+            //fill={true}
+            width = "500"
+            height = "500"
+            object-fit="cover"
+            //placeholder="blur"
+            className="w-full h-full top-0 left-0 object-cover rounded-2xl card-zoom-image shadow-xlg"
+            />
+          </div>
         </div>
-      </div>
-      <AddToCartBtn product={thisProduct} />
-    </main>
+        <AddToCartBtn product={thisProduct} />
+      </body>
     )
 }
