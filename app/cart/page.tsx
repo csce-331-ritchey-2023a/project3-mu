@@ -7,6 +7,9 @@ import Link from "next/link";
 
 
 const CartPage = () => {
+  const cartItems = useAppSelector(
+    (state:any) => state.cart.cartItems
+  );
   const Checkout = async () => {
     const itemIds = cartItems.map((item:any) => item.id);
     const itemIdsString = itemIds.join('/');
@@ -21,9 +24,7 @@ const CartPage = () => {
 			console.log(err);
 		}
 	};
-  const cartItems = useAppSelector(
-    (state:any) => state.cart.cartItems
-  );
+ 
   
   const totalPrice = useAppSelector(TotalPriceSelector);
   return (
@@ -43,7 +44,7 @@ const CartPage = () => {
             <Link href="/customer">Order More</Link>  
           </button>
           <button className="mx-auto rounded-lg bg-red-500 hover:bg-gray-500 py-2 px-4 text-white " onClick={Checkout}>
-            {/* <Link href="/customer">Checkout</Link>   */}Checkout
+            <Link href="/Complete">Checkout</Link>
           </button>         
       </div>
       <button></button>
