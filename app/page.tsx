@@ -13,14 +13,14 @@ export default function Home() {
   //const data = use(getItems())
   //console.log(data)
   return (
-    <main>
-      <nav className = "nav">
-        <Link href = {"/customer"}>Go To Customer </Link>
+    <main className="bg-primary">
+      <nav className = "flex justify-center">
+        <Link href = {"/customer"} className="flex justify-left">Go To Customer </Link>
         <Link href = {"/employee"}>Go To Employee </Link>
         <Link href = {"/manager"}>Go To Manager </Link>
         <Link href = {"/Weather"}>Go To Weather </Link>
       </nav>
-      <div>
+      <div className="flex justify-center">
         <h1>Welcome to Houston Street Subs!</h1>
       </div>
     </main>

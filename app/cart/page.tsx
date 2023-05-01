@@ -3,27 +3,28 @@ import CartItemCard from "../../components/CartItemCard";
 import React from "react";
 import { TotalPriceSelector } from "../../store/features/cartSlice";
 import { useAppSelector } from "../../store/store";
-import { use } from "react";
-import { Provider } from "react-redux";
 import Link from "next/link";
 
-const CartPage = () => {
-  // const Checkout = async () => {
-	// 	try {
-	// 		const res = await fetch(
-  //       `${process.env.BASE_URL}/api/Checkout/221`, {cache: "no-store"}
-	// 		);
-	// 		const data = await res.json();
-	// 		console.log(data);
-	// 	} catch (err) {
-	// 		console.log(err);
-	// 	}
-	// };
 
+const CartPage = () => {
+  const Checkout = async () => {
+    const itemIds = cartItems.map((item:any) => item.id);
+    const itemIdsString = itemIds.join('/');
+    console.log("api/"+itemIdsString+"\n")
+		try {
+			const res = await fetch(
+        "/api/Checkout/"+itemIdsString, {cache: "no-store"}
+			);
+			const data = await res.json();
+			console.log(data);
+		} catch (err) {
+			console.log(err);
+		}
+	};
   const cartItems = useAppSelector(
     (state:any) => state.cart.cartItems
   );
-  console.log(cartItems)
+  
   const totalPrice = useAppSelector(TotalPriceSelector);
   return (
     <body className="p-2 bg-primary">
@@ -41,10 +42,11 @@ const CartPage = () => {
           <button className="mx-auto rounded-lg bg-red-500 hover:bg-gray-500 py-2 px-4 text-white ">
             <Link href="/customer">Order More</Link>  
           </button>
-          <button className="mx-auto rounded-lg bg-red-500 hover:bg-gray-500 py-2 px-4 text-white ">
-            <Link href="/customer">Checkout</Link>  
+          <button className="mx-auto rounded-lg bg-red-500 hover:bg-gray-500 py-2 px-4 text-white " onClick={Checkout}>
+            {/* <Link href="/customer">Checkout</Link>   */}Checkout
           </button>         
       </div>
+      <button></button>
     </body>
   );
 };
