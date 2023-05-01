@@ -18,7 +18,7 @@ export async function GET(request: Request) {
     console.log(data);
     return NextResponse.json(data)
   }catch(error){
-    console.log('getZReport error:', error);
+    console.log('get_Z_Report error:', error);
     return null
   }
 }
