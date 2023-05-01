@@ -13,6 +13,8 @@ export const authOptions: AuthOptions = {
       let isAllowedToSignIn = true
       const allowedUser = [
         'Carter Patton',
+        'Sam Bierle',
+        'Santiago Fonseca'
       ];
       console.log(user);
       if (allowedUser.includes(String(user.name))) {
