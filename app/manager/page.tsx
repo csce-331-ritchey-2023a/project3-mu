@@ -17,6 +17,14 @@ async function Get_X_Report(){
   return await(res).json()
 }
 
+async function Get_Z_Report(){
+  const res = await fetch(`http://localhost:3000/api/Get_Z_Report`, {cache: "no-store"})
+  if(!res.ok){
+    console.log("result + ", res)
+  }
+  return await(res).json()
+}
+
 type WeatherData = {
   description: string;
   icon: string;
@@ -27,12 +35,21 @@ type WeatherData = {
 
 export default function Manager() {
   const [X_Report, setX_Report] = useState<any[]>([]);
+  const [Z_Report, setZ_Report] = useState<any[]>([]);
   const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
 
   useEffect(() => {
     async function fetchData() {
       const data = await Get_X_Report();
       setX_Report(data);
+    }
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    async function fetchData() {
+      const data = await Get_Z_Report();
+      setZ_Report(data);
     }
     fetchData();
   }, []);
@@ -63,6 +80,12 @@ export default function Manager() {
   return (
     <main>
       <div className="banner">
+        <nav className = "py-78 px-78 no-underline">
+          <div className="links">
+            <Link href="/customer">Customer View</Link>
+            <Link href="/employee">Employee View</Link>
+          </div>
+        </nav>
         <div className="bannerLogo">
           <Image
             src="https://api.dineoncampus.com/files/images/f864520e-32e6-442e-92ab-b77a90523603.png"
@@ -117,9 +140,9 @@ export default function Manager() {
             </div>
 
             <div className="whitebox" style={{ height: "auto" }}>
-              {X_Report.map((item: any) => (
+              {Z_Report.map((item: any) => (
                 <div key={item.foodid}>
-                  <p>Name: {item.name}, Food ID: {item.foodid}, Price: {item.price}</p>
+                  <p>Name: {item.name}, Item ID: {item.itemid}, Units Sold: {item.units_sold}</p>
                 </div>
               ))}
             </div>
