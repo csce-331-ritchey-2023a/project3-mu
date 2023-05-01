@@ -1,8 +1,6 @@
 import Link from "next/link"
 import './globals.css'
 export default function Home() {
-  //const data = use(getItems())
-  //console.log(data)
   return (
       <main className="bg-primary h-screen flex flex-col justify-center items-center">
         <nav className="flex justify-center space-x-4 mb-8">
