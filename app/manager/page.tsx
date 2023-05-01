@@ -1,24 +1,65 @@
+"use client"
 import Image from 'next/image'
 import Link from 'next/link'
 import { Inter } from 'next/font/google'
-import { use } from "react"
+import { useState, useEffect } from "react";
 import 'app/globals.css'
 import React from "react";
 
 const inter = Inter({ subsets: ['latin'] })
+const CITY_NAME = "College Station";
 
 async function Get_X_Report(){
-  const res = await fetch(`${process.env.BASE_URL}/api/Get_X_Report`, {cache: "no-store"})
+  const res = await fetch(`http://localhost:3000/api/Get_X_Report`, {cache: "no-store"})
   if(!res.ok){
     console.log("result + ", res)
   }
   return await(res).json()
 }
 
-
+type WeatherData = {
+  description: string;
+  icon: string;
+  temperature: number;
+  feelsLike: number;
+  humidity: number;
+};
 
 export default function Manager() {
-  const X_Report = use(Get_X_Report())
+  const [X_Report, setX_Report] = useState<any[]>([]);
+  const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
+
+  useEffect(() => {
+    async function fetchData() {
+      const data = await Get_X_Report();
+      setX_Report(data);
+    }
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    fetch(
+      `https://api.openweathermap.org/data/2.5/weather?q=College%20Station&appid=4c370ab7005159f6a3bb849c76366723`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        const { weather, main } = data;
+        const description = weather[0].description;
+        const icon = weather[0].icon;
+        const temperature = main.temp;
+        const feelsLike = main.feels_like;
+        const humidity = main.humidity;
+        setWeatherData({ description, icon, temperature, feelsLike, humidity });
+      })
+      .catch((error) => console.error(error));
+  }, []);
+
+  if (!weatherData) {
+    return <div>Loading...</div>;
+  }
+
+  const { description, icon, temperature, feelsLike, humidity } = weatherData;
+
   return (
     <main>
       <div className="banner">
@@ -92,6 +133,16 @@ export default function Manager() {
             </div>
           </div>
         </div>
+
+        <div className="Weather_box" style={{ height: "auto", display: "flex", justifyContent: "center" }}>
+          <h1>Current Weather in {CITY_NAME}</h1>
+          <p>{description}</p>
+          <img src={`http://openweathermap.org/img/w/${icon}.png`} alt={description} />
+          <p>Temperature: {temperature}°C</p>
+          <p>Feels Like: {feelsLike}°C</p>
+          <p>Humidity: {humidity}%</p>
+        </div>
+
       </div>
     </main>
   )
