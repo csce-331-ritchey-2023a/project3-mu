@@ -119,16 +119,14 @@
   }
 
   .Weather_box_Customer{
-    margin-top: 40px;
     height: 200px;
     background-color: white;
     border-radius: 10px;
     padding: 10px;
     text-align: center;
     font-size: 18px;
-    width: 50%;
-    margin-right: 15px;
-    margin-left: 15px;
+    width: 75%;
+    margin-bottom: 5%;
   }
 
   .Weather_box{

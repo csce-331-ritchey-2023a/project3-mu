@@ -3,9 +3,9 @@ import Image from 'next/image'
 import { use } from "react";
 import 'app/globals.css'
 import Link from 'next/link'
-//import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
-//import { createContext } from 'react'
+import { createContext } from 'react'
 
 async function getImages(){
     const res = await fetch("/api/getImages", {cache: "no-store"})
@@ -23,55 +23,48 @@ async function getImages(){
 
 
 
-// const CITY_NAME = "College Station";
+const CITY_NAME = "College Station";
 
-// type WeatherData = {
-//   description: string;
-//   icon: string;
-//   temperature: number;
-//   feelsLike: number;
-//   humidity: number;
-// };
+type WeatherData = {
+  description: string;
+  icon: string;
+  temperature: number;
+  feelsLike: number;
+  humidity: number;
+};
 
 export default function Customer(){
     const images = use(getImages())
-    //const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
+    const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
 
-    // useEffect(() => {
-    //   fetch(
-    //     `https://api.openweathermap.org/data/2.5/weather?q=College%20Station&appid=4c370ab7005159f6a3bb849c76366723`
-    //   )
-    //     .then((res) => res.json())
-    //     .then((data) => {
-    //       const { weather, main } = data;
-    //       const description = weather[0].description;
-    //       const icon = weather[0].icon;
-    //       const temperature = main.temp;
-    //       const feelsLike = main.feels_like;
-    //       const humidity = main.humidity;
-    //       setWeatherData({ description, icon, temperature, feelsLike, humidity });
-    //     })
-    //     .catch((error) => console.error(error));
-    // }, []);
+    useEffect(() => {
+      fetch(
+        `https://api.openweathermap.org/data/2.5/weather?q=College%20Station&appid=4c370ab7005159f6a3bb849c76366723`
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          const { weather, main } = data;
+          const description = weather[0].description;
+          const icon = weather[0].icon;
+          const temperature = main.temp;
+          const feelsLike = main.feels_like;
+          const humidity = main.humidity;
+          setWeatherData({ description, icon, temperature, feelsLike, humidity });
+        })
+        .catch((error) => console.error(error));
+    }, []);
   
-    // if (!weatherData) {
-    //   return <div>Loading...</div>;
-    // }
+    if (!weatherData) {
+      return <div>Loading...</div>;
+    }
   
-    // const { description, icon, temperature, feelsLike, humidity } = weatherData;
+    const { description, icon, temperature, feelsLike, humidity } = weatherData;
 
-    //console.log(images)
+    console.log(images)
     return(
+      <main>
         <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8 " >
         <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-        {/* <div className="Weather_box_Customer" style={{ height: "auto", display: "flex", justifyContent: "center" }}>
-          <h1>Current Weather in {CITY_NAME}</h1>
-          <p>{description}</p>
-          <img src={`http://openweathermap.org/img/w/${icon}.png`} alt={description} />
-          <p>Temperature: {temperature}°C</p>
-          <p>Feels Like: {feelsLike}°C</p>
-          <p>Humidity: {humidity}%</p>
-        </div> */}
           {images.map((image:any) => {
             return(
               <Link href={`/customer/${image.category}/${image.foodid}`} key={image.foodid}>
@@ -94,5 +87,14 @@ export default function Customer(){
           )})}
       </div>
     </div>
+    <div className="Weather_box_Customer" style={{ height: "auto", display: "flex", justifyContent: "center" }}>
+    <h1>Current Weather in {CITY_NAME}</h1>
+    <p>{description}</p>
+    <img src={`http://openweathermap.org/img/w/${icon}.png`} alt={description} />
+    <p>Temperature: {temperature}°C</p>
+    <p>Feels Like: {feelsLike}°C</p>
+    <p>Humidity: {humidity}%</p>
+  </div>
+  </main>
     )
 }
