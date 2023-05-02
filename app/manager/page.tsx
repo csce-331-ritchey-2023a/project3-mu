@@ -44,7 +44,6 @@ export default function Manager() {
 
   // Cause Button Input to Show Report
   const [showReport, setShowReport] = useState<boolean>(false);
-  const [showReport2, setShowReport2] = useState<boolean>(false);
 
   // Track value of dropdown menu
   const [selectedReport, setSelectedReport] = useState("none");
@@ -93,10 +92,6 @@ export default function Manager() {
       setShowReport(true);
     }
   }
-
-  const handleExcessReportButtonClick = () => {
-      setShowReport2(true);
-  }
   
   // Dropdown menu
   const handleDropdownChange = (event: any) => {
@@ -131,7 +126,7 @@ export default function Manager() {
             <input type="text" placeholder="Enter Ending Date" />
           </div>
 
-          <button type="button" className="textbox" onClick={handleExcessReportButtonClick}>
+          <button type="button" className="textbox">
             Execute Excess Report
           </button>
           <div className="Input_Box">
@@ -153,7 +148,7 @@ export default function Manager() {
         <div className="center">
           <div className="pair">
 
-          <div className="whitebox_Wide" style={{ height: "auto" }}>
+            <div className="whitebox_Wide" style={{ height: "auto" }}>
               {Z_Report.map((item: any) => (
                 <div key={item.foodid}>
                   <p>Name: {item.name}, Item ID: {item.itemid}, Units Sold: {item.units_sold}</p>
