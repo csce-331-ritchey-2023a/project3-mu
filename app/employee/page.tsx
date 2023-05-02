@@ -72,7 +72,7 @@ export default function Employee() {
   const names3 = use(getName3())
   const names4 = use(getName4())
   return (
-    <main>
+    <main className='bg-primary'>
       <div className="banner">
         <div className="bannerLogo">
           <Image
