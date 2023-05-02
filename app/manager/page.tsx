@@ -148,18 +148,18 @@ export default function Manager() {
         <div className="center">
           <div className="pair">
 
-            <div className="whitebox_Wide" style={{ height: "auto" }}>
-              {Z_Report.map((item: any) => (
-                <div key={item.foodid}>
-                  <p>Name: {item.name}, Item ID: {item.itemid}, Units Sold: {item.units_sold}</p>
-                </div>
-              ))}
-            </div>
-
             <div className="whitebox" style={{ height: "auto" }}>
               {X_Report.map((item: any) => (
                 <div key={item.foodid}>
                   <p>Name: {item.name}, Food ID: {item.foodid}, Price: {item.price}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="whitebox_Wide" style={{ height: "auto" }}>
+              {Z_Report.map((item: any) => (
+                <div key={item.foodid}>
+                  <p>Name: {item.name}, Item ID: {item.itemid}, Units Sold: {item.units_sold}</p>
                 </div>
               ))}
             </div>
@@ -188,12 +188,12 @@ export default function Manager() {
         </div>
 
         <div className="Weather_box" style={{ height: "auto", display: "flex", justifyContent: "center" }}>
-          <h1>Current Weather in {CITY_NAME}</h1>
-          <p>{description}</p>
+          <h1>Current Weather in {CITY_NAME}: &nbsp;</h1>
+          <p> <strong>{description}</strong> &nbsp;</p>
           <img src={`http://openweathermap.org/img/w/${icon}.png`} alt={description} />
-          <p>Temperature: {(temperature * 9/5 - 459.67).toFixed(2)}°F</p>
-          <p>Feels Like: {(feelsLike * 9/5 - 459.67).toFixed(2)}°F</p>
-          <p>Humidity: {humidity}%</p>
+          <p> <strong>Temperature:</strong> {(temperature * 9/5 - 459.67).toFixed(2)}°F &nbsp;</p>
+          <p> <strong>Feels Like:</strong> {(feelsLike * 9/5 - 459.67).toFixed(2)} °F &nbsp;</p>
+          <p> <strong>Humidity:</strong> {humidity}% </p>
         </div>
 
         <div className = "footer">
