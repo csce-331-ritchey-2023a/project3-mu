@@ -107,7 +107,6 @@ export default function Manager() {
   // In addition, add functionality to the buttons and dropdown menus to allow for the user to interact with the page
   return (
     <main>
-
       <div className="banner">
         <div className="bannerLogo">
           <Image
