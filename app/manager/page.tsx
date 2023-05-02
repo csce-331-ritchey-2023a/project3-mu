@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ['latin'] })
 const CITY_NAME = "College Station";
 
 async function Get_X_Report(){
-  const res = await fetch(`http://localhost:3000/api/Get_X_Report`, {cache: "no-store"})
+  const res = await fetch("/api/Get_X_Report", {cache: "no-store"})
   if(!res.ok){
     console.log("result + ", res)
     throw new Error("Error fetching X report data")
@@ -19,7 +19,7 @@ async function Get_X_Report(){
 }
 
 async function Get_Z_Report(){
-  const res = await fetch(`http://localhost:3000/api/Get_Z_Report`, {cache: "no-store"})
+  const res = await fetch("/api/Get_Z_Report", {cache: "no-store"})
   if(!res.ok){
     console.log("result + ", res)
     throw new Error("Error fetching Z report data")
