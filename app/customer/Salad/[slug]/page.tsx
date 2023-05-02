@@ -36,7 +36,7 @@ export default function Customer({
     };
     //console.log(thisProduct.imagePath)
     return(
-      <body>
+      <main>
         <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8 card-zoom">
           <div className="absolute inset-0 h-full w-full">
             <Image
@@ -52,6 +52,6 @@ export default function Customer({
           </div>
         </div>
         <AddToCartBtn product={thisProduct} />
-      </body>
+      </main>
     )
 }
