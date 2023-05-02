@@ -118,6 +118,20 @@
     flex-direction: column;
   }
 
+  .Weather_box{
+    margin-top: 40px;
+    height: 200px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    font-size: 22px;
+    width: 60%;
+    margin-right: 15px;
+    margin-left: 15px;
+    margin-bottom: 15px;;
+  }
+
   .whitebox {
     margin-top: 40px;
     height: 200px;
@@ -126,7 +140,7 @@
     padding: 10px;
     text-align: center;
     font-size: 18px;
-    width: 80%;
+    width: 85%;
     margin-right: 15px;
     margin-left: 15px;
   }
@@ -165,18 +179,4 @@
     font-size: 18px;
     width: 75%;
     margin-bottom: 5%;
-  }
-
-  .Weather_box{
-    margin-top: 40px;
-    height: 200px;
-    background-color: white;
-    border-radius: 10px;
-    padding: 10px;
-    text-align: center;
-    font-size: 22px;
-    width: 60%;
-    margin-right: 15px;
-    margin-left: 15px;
-    margin-bottom: 15px;;
   }
