@@ -21,13 +21,14 @@ export default function RootLayout({
     <body>
         <div className="banner">
             <div className="bannerLogo">
+            <Link href={"/"}>
             <Image
                 src="https://api.dineoncampus.com/files/images/f864520e-32e6-442e-92ab-b77a90523603.png"
                 alt="Houston Street Subs Logo"
                 width={80}
                 height={80}
                 className="logoImage"
-            />
+            /></Link>
             </div>
             <h1 className="bannerTitle">Customer Dashboard</h1>
             <Providers>

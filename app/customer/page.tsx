@@ -5,8 +5,6 @@ import 'app/globals.css'
 import Link from 'next/link'
 import { useState, useEffect } from "react";
 
-import { createContext } from 'react'
-
 async function getImages(){
     const res = await fetch("/api/getImages", {cache: "no-store"})
     if(!res.ok){
@@ -88,13 +86,13 @@ export default function Customer(){
       </div>
     </div>
     <div className="Weather_box_Customer" style={{ height: "auto", display: "flex", justifyContent: "center" }}>
-    <h1>Current Weather in {CITY_NAME}</h1>
-    <p>{description}</p>
-    <img src={`http://openweathermap.org/img/w/${icon}.png`} alt={description} />
-    <p>Temperature: {temperature}°C</p>
-    <p>Feels Like: {feelsLike}°C</p>
-    <p>Humidity: {humidity}%</p>
-  </div>
+      <h1>Current Weather in {CITY_NAME}</h1>
+      <p>{description}</p>
+      <img src={`http://openweathermap.org/img/w/${icon}.png`} alt={description} />
+      <p>Temperature: {temperature}°C</p>
+      <p>Feels Like: {feelsLike}°C</p>
+      <p>Humidity: {humidity}%</p>
+    </div>
   </main>
     )
 }
