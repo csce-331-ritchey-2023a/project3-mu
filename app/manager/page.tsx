@@ -78,7 +78,7 @@ export default function Manager() {
   const { description, icon, temperature, feelsLike, humidity } = weatherData;
 
   return (
-    <main className='bg-primary'>
+    <main>
       <div className="banner">
         <nav className = "py-78 px-78 no-underline">
           <div className="links">
@@ -139,7 +139,7 @@ export default function Manager() {
               ))}
             </div>
 
-            <div className="whitebox" style={{ height: "auto" }}>
+            <div className="whitebox_Wide" style={{ height: "auto" }}>
               {Z_Report.map((item: any) => (
                 <div key={item.foodid}>
                   <p>Name: {item.name}, Item ID: {item.itemid}, Units Sold: {item.units_sold}</p>
@@ -161,8 +161,8 @@ export default function Manager() {
           <h1>Current Weather in {CITY_NAME}</h1>
           <p>{description}</p>
           <img src={`http://openweathermap.org/img/w/${icon}.png`} alt={description} />
-          <p>Temperature: {temperature}°C</p>
-          <p>Feels Like: {feelsLike}°C</p>
+          <p>Temperature: {(temperature * 9/5 - 459.67).toFixed(2)}°F</p>
+          <p>Feels Like: {(feelsLike * 9/5 - 459.67).toFixed(2)}°F</p>
           <p>Humidity: {humidity}%</p>
         </div>
 
