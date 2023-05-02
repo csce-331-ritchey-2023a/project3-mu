@@ -13,6 +13,7 @@ async function Get_X_Report(){
   const res = await fetch(`http://localhost:3000/api/Get_X_Report`, {cache: "no-store"})
   if(!res.ok){
     console.log("result + ", res)
+    throw new Error("Error fetching X report data")
   }
   return await(res).json()
 }
@@ -21,6 +22,7 @@ async function Get_Z_Report(){
   const res = await fetch(`http://localhost:3000/api/Get_Z_Report`, {cache: "no-store"})
   if(!res.ok){
     console.log("result + ", res)
+    throw new Error("Error fetching Z report data")
   }
   return await(res).json()
 }
@@ -36,7 +38,16 @@ type WeatherData = {
 export default function Manager() {
   const [X_Report, setX_Report] = useState<any[]>([]);
   const [Z_Report, setZ_Report] = useState<any[]>([]);
+
+  // Get Weather Data
   const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
+
+  // Cause Button Input to Show Report
+  const [showReport, setShowReport] = useState<boolean>(false);
+  const [showReport2, setShowReport2] = useState<boolean>(false);
+
+  // Track value of dropdown menu
+  const [selectedReport, setSelectedReport] = useState("none");
 
   useEffect(() => {
     async function fetchData() {
@@ -77,15 +88,24 @@ export default function Manager() {
 
   const { description, icon, temperature, feelsLike, humidity } = weatherData;
 
+  const handleReportButtonClick = () => {
+    if (selectedReport === "X_Report" || selectedReport === "Z_Report") {
+      setShowReport(true);
+    }
+  }
+
+  const handleExcessReportButtonClick = () => {
+      setShowReport2(true);
+  }
+  
+  // Dropdown menu
+  const handleDropdownChange = (event: any) => {
+    setSelectedReport(event.target.value);
+  }
+
   return (
     <main>
       <div className="banner">
-        <nav className = "py-78 px-78 no-underline">
-          <div className="links">
-            <Link href="/customer">Customer View</Link>
-            <Link href="/employee">Employee View</Link>
-          </div>
-        </nav>
         <div className="bannerLogo">
           <Image
             src="https://api.dineoncampus.com/files/images/f864520e-32e6-442e-92ab-b77a90523603.png"
@@ -111,35 +131,29 @@ export default function Manager() {
             <input type="text" placeholder="Enter Ending Date" />
           </div>
 
-          <button type="button" className="textbox">
+          <button type="button" className="textbox" onClick={handleExcessReportButtonClick}>
             Execute Excess Report
           </button>
           <div className="Input_Box">
             <input type="text" placeholder="Enter information" />
           </div>
 
-          <button type="button" className="textbox">
+          <button type="button" className="textbox" onClick={handleReportButtonClick}>
             Execute Report:
           </button>
           <div className="dropdown">
-            <select>
-              <option value="item1">X Report</option>
-              <option value="item2">Z Report</option>
+            <select value={selectedReport} onChange={handleDropdownChange}>
+              <option value="none">Select Report</option>
+              <option value="X_Report">X Report</option>
+              <option value="Z_Report">Z Report</option>
             </select>
           </div>
         </div>
 
         <div className="center">
           <div className="pair">
-            <div className="whitebox" style={{ height: "auto" }}>
-              {X_Report.map((item: any) => (
-                <div key={item.foodid}>
-                  <p>Name: {item.name}, Food ID: {item.foodid}, Price: {item.price}</p>
-                </div>
-              ))}
-            </div>
 
-            <div className="whitebox_Wide" style={{ height: "auto" }}>
+          <div className="whitebox_Wide" style={{ height: "auto" }}>
               {Z_Report.map((item: any) => (
                 <div key={item.foodid}>
                   <p>Name: {item.name}, Item ID: {item.itemid}, Units Sold: {item.units_sold}</p>
@@ -154,6 +168,27 @@ export default function Manager() {
                 </div>
               ))}
             </div>
+
+            {selectedReport === "X_Report" && showReport &&(
+              <div className="whitebox" style={{ height: "auto" }}>
+                {X_Report.map((item: any) => (
+                  <div key={item.foodid}>
+                    <p>Name: {item.name}, Food ID: {item.foodid}, Price: {item.price}</p>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {selectedReport === "Z_Report" && showReport && (
+              <div className="whitebox_Wide" style={{ height: "auto" }}>
+                {Z_Report.map((item: any) => (
+                  <div key={item.foodid}>
+                    <p>Name: {item.name}, Item ID: {item.itemid}, Units Sold: {item.units_sold}</p>
+                  </div>
+                ))}
+              </div>
+            )}
+
           </div>
         </div>
 
@@ -166,6 +201,14 @@ export default function Manager() {
           <p>Humidity: {humidity}%</p>
         </div>
 
+        <div className = "footer">
+          <nav className = "py-78 px-78 no-underline">
+            <div className="links">
+              <Link href="/customer">Customer View</Link>
+              <Link href="/employee" style={{ marginLeft: "20px" }}>Employee View</Link>
+            </div>
+          </nav>
+        </div>
       </div>
     </main>
   )
