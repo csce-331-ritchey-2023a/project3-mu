@@ -9,6 +9,7 @@ import React from "react";
 const inter = Inter({ subsets: ['latin'] })
 const CITY_NAME = "College Station";
 
+// Function to get X report data
 async function Get_X_Report(){
   const res = await fetch("/api/Get_X_Report", {cache: "no-store"})
   if(!res.ok){
@@ -18,6 +19,7 @@ async function Get_X_Report(){
   return await(res).json()
 }
 
+// Function to get Z report data
 async function Get_Z_Report(){
   const res = await fetch("/api/Get_Z_Report", {cache: "no-store"})
   if(!res.ok){
@@ -27,6 +29,7 @@ async function Get_Z_Report(){
   return await(res).json()
 }
 
+// Weather API Variables
 type WeatherData = {
   description: string;
   icon: string;
@@ -64,6 +67,7 @@ export default function Manager() {
     fetchData();
   }, []);
 
+  // Use the Weather API to get the weather data
   useEffect(() => {
     fetch(
       `https://api.openweathermap.org/data/2.5/weather?q=College%20Station&appid=4c370ab7005159f6a3bb849c76366723`
@@ -87,6 +91,7 @@ export default function Manager() {
 
   const { description, icon, temperature, feelsLike, humidity } = weatherData;
 
+  // Button Input
   const handleReportButtonClick = () => {
     if (selectedReport === "X_Report" || selectedReport === "Z_Report") {
       setShowReport(true);
@@ -98,8 +103,11 @@ export default function Manager() {
     setSelectedReport(event.target.value);
   }
 
+  // Create many front-end objects such as the buttons, input boxes, dropdown menus, and the boxes to hold report returns
+  // In addition, add functionality to the buttons and dropdown menus to allow for the user to interact with the page
   return (
     <main>
+
       <div className="banner">
         <div className="bannerLogo">
           <Image
