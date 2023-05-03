@@ -97,6 +97,14 @@ export default function Manager() {
       setShowReport(true);
     }
   }
+
+  const handleSalesReportButtonClick = () => {
+    setShowReport2(true);
+  }
+
+  const handleExcessReportButtonClick = () => {
+    setShowReport3(true);
+  }
   
   // Dropdown menu
   const handleDropdownChange = (event: any) => {
@@ -123,7 +131,7 @@ export default function Manager() {
       <div className="center">
         <div className="pair">
 
-          <button type="button" className="textbox">
+        <button type="button" className="textbox" onClick={handleSalesReportButtonClick}>
             Execute Sales Report
           </button>
           <div className="Input_Box">
@@ -133,7 +141,7 @@ export default function Manager() {
             <input type="text" placeholder="Enter Ending Date" />
           </div>
 
-          <button type="button" className="textbox">
+          <button type="button" className="textbox" onClick={handleExcessReportButtonClick}>
             Execute Excess Report
           </button>
           <div className="Input_Box">
@@ -155,21 +163,25 @@ export default function Manager() {
         <div className="center">
           <div className="pair">
 
-            <div className="whitebox" style={{ height: "auto" }}>
-              {X_Report.map((item: any) => (
-                <div key={item.foodid}>
-                  <p>Name: {item.name}, Food ID: {item.foodid}, Price: {item.price}</p>
-                </div>
-              ))}
-            </div>
+            {showReport2 &&(
+              <div className="whitebox" style={{ height: "auto" }}>
+                {X_Report.map((item: any) => (
+                  <div key={item.foodid}>
+                    <p>Name: {item.name}, Food ID: {item.foodid}, Price: {item.price}</p>
+                  </div>
+                ))}
+              </div>
+            )}
 
-            <div className="whitebox_Wide" style={{ height: "auto" }}>
-              {Z_Report.map((item: any) => (
-                <div key={item.foodid}>
-                  <p>Name: {item.name}, Item ID: {item.itemid}, Units Sold: {item.units_sold}</p>
-                </div>
-              ))}
-            </div>
+            {showReport3 &&(
+              <div className="whitebox_Wide" style={{ height: "auto" }}>
+                {Z_Report.map((item: any) => (
+                  <div key={item.foodid}>
+                    <p>Name: {item.name}, Item ID: {item.itemid}, Units Sold: {item.units_sold}</p>
+                  </div>
+                ))}
+              </div>
+            )}
 
             {selectedReport === "X_Report" && showReport &&(
               <div className="whitebox" style={{ height: "auto" }}>
