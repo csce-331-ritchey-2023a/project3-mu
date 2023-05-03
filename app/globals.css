@@ -58,6 +58,20 @@
     font-weight: bold;
   }
 
+  .container{
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+  }
+
+  .absolute-top {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+  }
+
+
   .links {
     display: flex;
     margin-right: auto;
