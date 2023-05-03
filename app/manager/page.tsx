@@ -47,6 +47,8 @@ export default function Manager() {
 
   // Cause Button Input to Show Report
   const [showReport, setShowReport] = useState<boolean>(false);
+  const [showReport2, setShowReport2] = useState<boolean>(false);
+  const [showReport3, setShowReport3] = useState<boolean>(false);
 
   // Track value of dropdown menu
   const [selectedReport, setSelectedReport] = useState("none");
