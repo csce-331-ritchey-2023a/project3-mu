@@ -5,6 +5,9 @@ import { use } from "react"
 import { Inter } from 'next/font/google'
 import React from "react";
 import GoogleTranslate from "./GoogleTranslate"
+import Link from 'next/link'
+import 'app/globals.css'
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -52,16 +55,7 @@ async function getName4(){
   return await(res).json()
 }
 
-const GrayBlock = () => {
-  return (
-    <div className="absolute bottom-0 right-0 m-4 p-4 bg-gray-300 rounded-lg shadow-md">
-      <div className="text-lg font-bold mb-2 border-b-2 border-black pb-2">Order</div>
-      <div className="text-sm mb-4">1x.................TurkMuf - Half</div>
-      <div className="text-sm mb-4">1x.................Fountain Drink  </div>
-      <div className="text-sm">1x.................Baked Chips </div>
-    </div>
-  );
-};
+
 
 
 
@@ -72,7 +66,7 @@ export default function Employee() {
   const names3 = use(getName3())
   const names4 = use(getName4())
   return (
-    <main className='bg-primary'>
+    <main className="bg-primary flex flex-col min-h-screen absolute-top">
       <div className="banner">
         <div className="bannerLogo">
           <Image
@@ -92,50 +86,68 @@ export default function Employee() {
         
         <div className="flex justify-between mr-1">
           <div className="flex flex-col items-start">
+            <div style={{ display: 'grid', gridTemplateColumns: 'auto auto', alignItems: 'center' }}>
             {names.map((item: any) => (
+              <Link href={`/employee/${item.foodid}`} className="group" key={item.foodid}>
               <button
                 key={item.foodid}
                 className="bg-blue-500 hover:bg-blue-800 text-white px-6 py-3 m-1 rounded-lg text-lg w-32 h-32"
               >
+                 
                 {item.name}
               </button>
+              
+                </Link>
             ))}
+            </div>
           </div>
 
           <div className="flex flex-col items-start">
             {names2.map((item: any) => (
+              <Link href={`/employee/${item.foodid}`} className="group" key={item.foodid}>
               <button
                 key={item.foodid}
-                className="bg-blue-500 hover:bg-blue-800 text-white px-6 py-3 m-4 rounded-lg text-lg w-32 h-32"
+                className="bg-blue-500 hover:bg-blue-800 text-white px-6 py-3 m-1 rounded-lg text-lg w-32 h-32"
               >
+                 
                 {item.name}
               </button>
+              
+                </Link>
             ))}
           </div>
 
           <div className="flex flex-col items-start">
             {names3.map((item: any) => (
+              <Link href={`/employee/${item.foodid}`} className="group" key={item.foodid}>
               <button
                 key={item.foodid}
-                className="bg-blue-500 hover:bg-blue-800 text-white px-6 py-3 m-4 rounded-lg text-lg w-32 h-32"
+                className="bg-blue-500 hover:bg-blue-800 text-white px-6 py-3 m-1 rounded-lg text-lg w-32 h-32"
               >
+                 
                 {item.name}
               </button>
+              
+                </Link>
             ))}
           </div>
 
           <div className="flex flex-col items-start">
             {names4.map((item: any) => (
+              <Link href={`/employee/${item.foodid}`} className="group" key={item.foodid}>
               <button
                 key={item.foodid}
-                className="bg-blue-500 hover:bg-blue-800 text-white px-6 py-3 m-4 rounded-lg text-lg w-32 h-32"
+                className="bg-blue-500 hover:bg-blue-800 text-white px-6 py-3 m-1 rounded-lg text-lg w-32 h-32"
               >
+                 
                 {item.name}
               </button>
+              
+                </Link>
             ))}
           </div>
         </div>
-        <GrayBlock />
+        
       </div>
     </main>
   );
